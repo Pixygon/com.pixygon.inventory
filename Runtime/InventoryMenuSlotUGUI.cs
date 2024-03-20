@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Pixygon.Inventory {
+namespace Pixygon.InventorySystem {
     public class InventoryMenuSlot : MonoBehaviour {
         [SerializeField] private TextMeshProUGUI _text;
         [SerializeField] private Image _icon;

@@ -1,9 +1,8 @@
-﻿using Pixygon.Inventory;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Pixygon.Inventory {
+namespace Pixygon.InventorySystem {
     public class InventoryMenu : MonoBehaviour {
         [SerializeField] private InventoryMenuSlot[] _slots;
         [SerializeField] private Image _itemIcon;

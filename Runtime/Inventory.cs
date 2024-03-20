@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Pixygon.Inventory {
+namespace Pixygon.InventorySystem {
     public class Inventory : MonoBehaviour {
         [SerializeField] private List<InventorySlot> _startInventory;
         public int MaxSize;
@@ -47,14 +46,6 @@ namespace Pixygon.Inventory {
             }
             return false;
         }
-        public int GetAmount(InventorySlot item) {
-            if (Slots == null) return 0;
-            foreach (var i in Slots) {
-                if (i._item != item._item) continue;
-                return i._quantity;
-            }
-            return 0;
-        }
         public bool CheckAvailability(InventorySlot item) {
             if (Slots == null) return false;
             foreach (var i in Slots) {
@@ -63,6 +54,14 @@ namespace Pixygon.Inventory {
                 return true;
             }
             return false;
+        }
+        public int GetAmount(InventorySlot item) {
+            if (Slots == null) return 0;
+            foreach (var i in Slots) {
+                if (i._item != item._item) continue;
+                return i._quantity;
+            }
+            return 0;
         }
         public bool CheckAvailability(InventoryItem[] items) {
             if (items == null) return true;
@@ -84,17 +83,6 @@ namespace Pixygon.Inventory {
 
         public void Clear() {
             Slots = new List<InventorySlot>();
-        }
-    }
-
-    [Serializable]
-    public class InventorySlot {
-        public InventoryItem _item;
-        public int _quantity;
-
-        public InventorySlot(InventoryItem item, int quantity) {
-            _item = item;
-            _quantity = quantity;
         }
     }
 }

@@ -1,6 +1,6 @@
 {
-    "name": "Pixygon.Inventory",
-    "rootNamespace": "Pixygon.Inventory",
+    "name": "Pixygon.InventorySystem",
+    "rootNamespace": "Pixygon.InventorySystem",
     "references": [
         "GUID:f3cd21784626a0443896989d027aeb46",
         "GUID:0f091bec18d26d043a04de1f9d43ae97",
