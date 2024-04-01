@@ -1,5 +1,6 @@
 using Pixygon.ID;
 using Pixygon.Skills;
+using Pixygon.NFT;
 using UnityEngine;
 
 namespace Pixygon.InventorySystem {
@@ -11,5 +12,8 @@ namespace Pixygon.InventorySystem {
         public string Description;
         public bool HasEffect;
         public SkillData Effect;
+
+        public bool GlobalItem;
+        public NFTLink NftData;
     }
 }

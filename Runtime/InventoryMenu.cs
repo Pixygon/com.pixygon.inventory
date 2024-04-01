@@ -4,12 +4,12 @@ using UnityEngine.UI;
 
 namespace Pixygon.InventorySystem {
     public class InventoryMenu : MonoBehaviour {
-        [SerializeField] private InventoryMenuSlot[] _slots;
+        [SerializeField] private InventoryMenuSlotUGUI[] _slots;
         [SerializeField] private Image _itemIcon;
         [SerializeField] private TextMeshProUGUI _itemPrice;
         [SerializeField] private TextMeshProUGUI _itemName;
         [SerializeField] private TextMeshProUGUI _itemDescription;
-        private InventoryMenuSlot CurrentSlot => _slots[_currentSlot];
+        private InventoryMenuSlotUGUI CurrentSlotUGUI => _slots[_currentSlot];
         private int _currentSlot;
         private Inventory _inventory;
 
@@ -37,27 +37,27 @@ namespace Pixygon.InventorySystem {
             }
 
             _currentSlot = 0;
-            CurrentSlot.Activate(true);
+            CurrentSlotUGUI.Activate(true);
             SetTexts();
         }
 
         private void SetTexts() {
-            if (CurrentSlot.Item == null) {
+            if (CurrentSlotUGUI.Item == null) {
                 _itemName.text = "";
                 _itemPrice.text = "";
                 _itemDescription.text = "";
                 _itemIcon.sprite = null;
             }
             else {
-                _itemName.text = CurrentSlot.Item._item.Title;
-                _itemPrice.text = "x" + CurrentSlot.Item._quantity;
-                _itemDescription.text = CurrentSlot.Item._item.Description;
-                _itemIcon.sprite = CurrentSlot.Item._item.Icon;
+                _itemName.text = CurrentSlotUGUI.Item._item.Title;
+                _itemPrice.text = "x" + CurrentSlotUGUI.Item._quantity;
+                _itemDescription.text = CurrentSlotUGUI.Item._item.Description;
+                _itemIcon.sprite = CurrentSlotUGUI.Item._item.Icon;
             }
         }
 
         public void Move(int x, int y) {
-            CurrentSlot.Activate(false);
+            CurrentSlotUGUI.Activate(false);
             if (x == 1) {
                 if (_currentSlot == 39) _currentSlot = 0;
                 else _currentSlot += 1;
@@ -75,12 +75,12 @@ namespace Pixygon.InventorySystem {
                 else _currentSlot -= 10;
             }
 
-            CurrentSlot.Activate(true);
+            CurrentSlotUGUI.Activate(true);
             SetTexts();
         }
 
         public void Select() {
-            if (CurrentSlot.Item == null) return;
+            if (CurrentSlotUGUI.Item == null) return;
             switch (_slots[_currentSlot].Item._item.CategoryId) {
                 case 0:
                     break;
@@ -94,9 +94,9 @@ namespace Pixygon.InventorySystem {
                 _slots[i].Set(null);
             }
 
-            CurrentSlot.Activate(false);
+            CurrentSlotUGUI.Activate(false);
             _currentSlot = 0;
-            CurrentSlot.Activate(true);
+            CurrentSlotUGUI.Activate(true);
             SetTexts();
         }
 
