@@ -13,6 +13,12 @@ namespace Pixygon.InventorySystem {
         public bool HasEffect;
         public SkillData Effect;
 
+        public bool UniqueItem;
+        public int CurrentDurability;
+        public int MaxDurability;
+        public float Weight;
+        public string ExtraData;
+
         public bool GlobalItem;
         public NFTLink NftData;
     }
