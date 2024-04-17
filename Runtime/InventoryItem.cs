@@ -8,10 +8,13 @@ namespace Pixygon.InventorySystem {
     public class InventoryItem : IdObject {
         public string Title;
         public Sprite Icon;
+        public GameObject ItemPrefab;
         public int Price;
         public string Description;
         public bool HasEffect;
         public SkillData Effect;
+        private float Chance;
+        private int MaxAmount;
 
         public bool UniqueItem;
         public int CurrentDurability;
