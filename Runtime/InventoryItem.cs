@@ -13,8 +13,8 @@ namespace Pixygon.InventorySystem {
         public string Description;
         public bool HasEffect;
         public SkillData Effect;
-        private float Chance;
-        private int MaxAmount;
+        public float Chance;
+        public int MaxAmount;
 
         public bool UniqueItem;
         public int CurrentDurability;
