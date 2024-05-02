@@ -7,16 +7,21 @@ namespace Pixygon.InventorySystem {
         [SerializeField] private TextMeshProUGUI _text;
         [SerializeField] private Image _icon;
         [SerializeField] private GameObject _activeFrame;
+        [SerializeField] private bool _alwaysShow;
         
         public InventorySlot Item { get; private set; }
         public void Set(InventorySlot item) {
             if (item == null) {
-                gameObject.SetActive(false);
+                if (_alwaysShow)
+                    _icon.gameObject.SetActive(false);
+                else
+                    gameObject.SetActive(false);
                 return;
             }
             _text.text = "";
             _icon.sprite = null;
             Item = item;
+            _icon.gameObject.SetActive(true);
             gameObject.SetActive(true);
             _text.text = Item._quantity.ToString();
             _icon.sprite = Item._item.Icon;
