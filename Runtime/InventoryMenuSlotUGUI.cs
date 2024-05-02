@@ -11,6 +11,8 @@ namespace Pixygon.InventorySystem {
         
         public InventorySlot Item { get; private set; }
         public void Set(InventorySlot item) {
+            _text.text = "";
+            _icon.sprite = null;
             if (item == null) {
                 if (_alwaysShow)
                     _icon.gameObject.SetActive(false);
@@ -18,8 +20,6 @@ namespace Pixygon.InventorySystem {
                     gameObject.SetActive(false);
                 return;
             }
-            _text.text = "";
-            _icon.sprite = null;
             Item = item;
             _icon.gameObject.SetActive(true);
             gameObject.SetActive(true);
