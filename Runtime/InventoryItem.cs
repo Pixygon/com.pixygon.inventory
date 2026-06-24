@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Pixygon.ID;
 using Pixygon.Skills;
 using Pixygon.NFT;
@@ -25,6 +26,10 @@ namespace Pixygon.InventorySystem {
         public string ExtraData;
 
         public bool GlobalItem;
+
+        [Tooltip("Codex lore — unlockable tiers shown in the Hub journal, gated on how many times this " +
+                 "item has been collected. Authored here on the asset; the Codex reads it directly.")]
+        public List<LoreTier> _loreTiers = new List<LoreTier>();
 
         [InspectorButton("GetTemplate", ButtonWidth = 150), SerializeField] private bool GetTemplateInfo;
         public async void GetTemplate() {
